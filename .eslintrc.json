@@ -1,0 +1,154 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:boundaries/recommended",
+    "plugin:import/recommended",
+    "plugin:jsdoc/recommended",
+    "plugin:security/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "boundaries",
+    "import",
+    "jsdoc",
+    "security",
+    "import-helpers"
+  ],
+  "settings": {
+    "boundaries/elements": [
+      {
+        "type": "common-domain",
+        "pattern": "src/core/common/domain/*"
+      },
+      {
+        "type": "common-infrastructure",
+        "pattern": "src/core/common/infrastructure/*"
+      },
+      {
+        "type": "common-ui",
+        "pattern": "src/core/common/ui/*"
+      },
+      {
+        "type": "auth-domain",
+        "pattern": "src/core/modules/auth/domain/*"
+      },
+      {
+        "type": "auth-application",
+        "pattern": "src/core/modules/auth/ui/*"
+      },
+      {
+        "type": "auth-infrastructure",
+        "pattern": "src/core/modules/auth/infrastructure/*"
+      },
+      {
+        "type": "user-domain",
+        "pattern": "src/core/modules/user/domain/*"
+      },
+      {
+        "type": "user-application",
+        "pattern": "src/core/modules/user/ui/*"
+      },
+      {
+        "type": "user-infrastructure",
+        "pattern": "src/core/modules/user/infrastructure/*"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "**/*.test.ts",
+        "**/*.spec.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "boundaries/element-types": [
+          2,
+          {
+            "default": "disallow",
+            "rules": [
+              {
+                "from": "common-domain",
+                "allow": ["common-domain"]
+              },
+              {
+                "from": "common-infrastructure",
+                "allow": ["common-domain", "common-infrastructure", "common-ui"]
+              },
+              {
+                "from": "common-ui",
+                "allow": ["common-domain", "common-infrastructure", "common-ui"]
+              },
+              {
+                "from": "auth-domain",
+                "allow": ["common-domain", "auth-domain"]
+              },
+              {
+                "from": "auth-application",
+                "allow": ["common-domain", "auth-domain", "auth-application"]
+              },
+              {
+                "from": "auth-infrastructure",
+                "allow": [
+                  "common-domain",
+                  "auth-domain",
+                  "auth-application",
+                  "common-infrastructure",
+                  "auth-infrastrucutre"
+                ]
+              },
+              {
+                "from": "user-domain",
+                "allow": ["common-domain", "user-domain"]
+              },
+              {
+                "from": "user-application",
+                "allow": ["common-domain", "user-domain", "user-application"]
+              },
+              {
+                "from": "user-infrastructure",
+                "allow": [
+                  "common-domain",
+                  "user-domain",
+                  "user-application",
+                  "common-infrastructure",
+                  "user-infrastrucutre"
+                ]
+              }
+            ]
+          }
+        ],
+        "import-helpers/order-imports": [
+          "warn",
+          {
+            "newlinesBetween": "always",
+            "groups": [
+              ["/^@nestjs/"],
+              "module",
+              "/@common/domain/",
+              "/@common/application/",
+              "/@common/infrastructure/",
+              "/@common/ui/",
+              "/@auth/domain/",
+              "/@auth/application/",
+              "/@auth/infrastructure/",
+              "/@user/domain/",
+              "/@user/application/",
+              "/@user/infrastructure/",
+              "absolute",
+              ["parent", "sibling", "index"]
+            ],
+            "alphabetize": {
+              "order": "asc",
+              "ignoreCase": true
+            }
+          }
+        ],
+        "jsdoc/require-jsdoc": "off"
+      }
+    }
+  ]
+}

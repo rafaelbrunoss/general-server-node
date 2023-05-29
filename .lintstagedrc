@@ -1,0 +1,28 @@
+{
+  "./src/app/*.{js,jsx,ts,tsx}": [
+    "npm run format",
+    "npm run lint-folder src/app",
+    "git add src/app"
+  ],
+  "./src/core/application/*.{js,jsx,ts,tsx}": [
+    "npm run format",
+    "npm run lint-folder src/core/application",
+    "git add src/core/application"
+  ],
+  "./src/core/domain/*.{js,jsx,ts,tsx}": [
+    "npm run format",
+    "npm run lint-folder src/core/domain",
+    "git add src/core/domain"
+  ],
+  "./src/core/infrastructure/*.{js,jsx,ts,tsx}": [
+    "npm run format",
+    "npm run lint-folder src/core/infrastructure",
+    "git add src/core/infrastructure"
+  ],
+  "./src/core/presentation/*.{js,jsx,ts,tsx}": [
+    "npm run format",
+    "npm run lint-folder src/core/presentation",
+    "git add src/core/presentation"
+  ],
+  "*.scss,*.css": ["npm run stylelint", "git add"]
+}
