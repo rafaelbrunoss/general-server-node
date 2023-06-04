@@ -1,6 +1,6 @@
 import { ApiResult } from '@common/domain/models';
 
-import { IUserGateway } from '@user/domain';
+import type { IUserGateway } from '@user/domain';
 
 export class DeleteUserUseCase {
   constructor(private userGateway: IUserGateway) {}

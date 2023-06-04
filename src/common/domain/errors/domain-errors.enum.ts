@@ -1,4 +1,5 @@
-export enum ApiErrors {
+export enum DomainErrors {
   INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
+  VALIDATION_ERROR = 'VALIDATION_ERROR',
   NO_RECORDS_FOUND = 'NO_RECORDS_FOUND',
 }

@@ -20,49 +20,44 @@
     "boundaries/elements": [
       {
         "type": "common-domain",
-        "pattern": "src/core/common/domain/*"
+        "pattern": "src/common/domain/*"
       },
       {
         "type": "common-infrastructure",
-        "pattern": "src/core/common/infrastructure/*"
-      },
-      {
-        "type": "common-ui",
-        "pattern": "src/core/common/ui/*"
+        "pattern": "src/common/infrastructure/*"
       },
       {
         "type": "auth-domain",
-        "pattern": "src/core/modules/auth/domain/*"
+        "pattern": "src/modules/auth/domain/*"
       },
       {
         "type": "auth-application",
-        "pattern": "src/core/modules/auth/ui/*"
+        "pattern": "src/modules/auth/application/*"
       },
       {
         "type": "auth-infrastructure",
-        "pattern": "src/core/modules/auth/infrastructure/*"
+        "pattern": "src/modules/auth/infrastructure/*"
       },
       {
         "type": "user-domain",
-        "pattern": "src/core/modules/user/domain/*"
+        "pattern": "src/modules/user/domain/*"
       },
       {
         "type": "user-application",
-        "pattern": "src/core/modules/user/ui/*"
+        "pattern": "src/modules/user/application/*"
       },
       {
         "type": "user-infrastructure",
-        "pattern": "src/core/modules/user/infrastructure/*"
+        "pattern": "src/modules/user/infrastructure/*"
       }
-    ]
+    ],
+    "import/resolver": {
+      "typescript": {}
+    }
   },
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "**/*.test.ts",
-        "**/*.spec.ts"
-      ],
+      "files": ["*.ts", "**/*.test.ts", "**/*.spec.ts"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
         "boundaries/element-types": [
@@ -76,10 +71,6 @@
               },
               {
                 "from": "common-infrastructure",
-                "allow": ["common-domain", "common-infrastructure", "common-ui"]
-              },
-              {
-                "from": "common-ui",
                 "allow": ["common-domain", "common-infrastructure", "common-ui"]
               },
               {
@@ -131,7 +122,6 @@
               "/@common/domain/",
               "/@common/application/",
               "/@common/infrastructure/",
-              "/@common/ui/",
               "/@auth/domain/",
               "/@auth/application/",
               "/@auth/infrastructure/",

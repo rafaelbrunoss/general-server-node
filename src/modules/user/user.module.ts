@@ -1,6 +1,5 @@
 import { interfaces } from 'inversify';
 
-import { INFRASTRUCTURE_COMMON_SERVICES_SYMBOLS } from '@common/infrastructure';
 import { BaseModule } from '@common/infrastructure/module';
 
 import {

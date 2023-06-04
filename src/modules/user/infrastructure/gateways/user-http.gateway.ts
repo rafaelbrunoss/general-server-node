@@ -1,28 +1,36 @@
 import { injectable } from 'inversify';
 
+import { ApiResult } from '@common/domain/models';
+
 import { IUserGateway, User } from '@user/domain';
 
 @injectable()
 export class UserHttpGateway implements IUserGateway {
-  constructor() {}
-
-  public async create(user: User): Promise<void> {
-    return Promise.resolve();
+  public async create(user: User): Promise<ApiResult> {
+    return await Promise.resolve(new ApiResult({ data: user }));
   }
 
-  public async findById(id: string): Promise<User> {
-    return Promise.resolve(new User({}));
+  public async findById(id: string): Promise<ApiResult<User>> {
+    return await Promise.resolve(
+      new ApiResult({
+        data: new User({ name: id }),
+      }),
+    );
   }
 
-  public async findAll(): Promise<User[]> {
-    return Promise.resolve([new User({})]);
+  public async findAll(): Promise<ApiResult<User[]>> {
+    return await Promise.resolve(
+      new ApiResult({
+        data: [new User({})],
+      }),
+    );
   }
 
-  public async update(user: User): Promise<void> {
-    return Promise.resolve();
+  public async update(user: User): Promise<ApiResult> {
+    return await Promise.resolve(new ApiResult({ data: user }));
   }
 
-  public async delete(id: string): Promise<void> {
-    return Promise.resolve();
+  public async delete(id: string): Promise<ApiResult> {
+    return await Promise.resolve(new ApiResult({ data: id }));
   }
 }

@@ -1,6 +1,5 @@
 import { interfaces } from 'inversify';
 
-import { INFRASTRUCTURE_COMMON_SERVICES_SYMBOLS } from '@common/infrastructure';
 import { BaseModule } from '@common/infrastructure/module';
 
 import { APPLICATION_AUTH_SYMBOLS, SignInUseCase } from '@auth/application';
@@ -20,12 +19,7 @@ export class AuthModule extends BaseModule {
   }
 
   private provideGateways(bind: interfaces.Bind): void {
-    bind(INFRASTRUCTURE_AUTH_SYMBOLS.AuthHttpGateway).toDynamicValue((context) => {
-      return new AuthHttpGateway(
-        context.container.get(INFRASTRUCTURE_COMMON_SERVICES_SYMBOLS.HttpService),
-        context.container.get(INFRASTRUCTURE_COMMON_SERVICES_SYMBOLS.StorageService),
-      );
-    });
+    bind(INFRASTRUCTURE_AUTH_SYMBOLS.AuthHttpGateway).to(AuthHttpGateway);
   }
 
   private provideUseCases(bind: interfaces.Bind): void {

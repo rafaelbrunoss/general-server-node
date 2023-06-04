@@ -1,6 +1,6 @@
 import { ApiResult } from '@common/domain/models';
 
-import { IAuthGateway, AuthUser, SignInCredentials } from '@auth/domain';
+import type { IAuthGateway, AuthUser, SignInCredentials } from '@auth/domain';
 
 export class SignInUseCase {
   constructor(private authGateway: IAuthGateway) {}

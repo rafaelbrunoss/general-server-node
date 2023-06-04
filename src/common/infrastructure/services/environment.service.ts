@@ -1,19 +1,19 @@
 import { injectable } from 'inversify';
 
-import { APP_CONFIG } from '@common/domain/utils';
+import { NODE_ENV } from '@common/domain/utils';
 
 @injectable()
 export class EnvironmentService {
   public get isDev(): boolean {
-    return APP_CONFIG.environment === 'dev';
+    return NODE_ENV === 'development';
   }
 
   public get isStg(): boolean {
-    return APP_CONFIG.environment === 'stg';
+    return NODE_ENV === 'staging';
   }
 
   public get isProd(): boolean {
-    return APP_CONFIG.environment === 'prod';
+    return NODE_ENV === 'production';
   }
 
   public getEnvironmentUrl(): string {
