@@ -2,6 +2,8 @@
 
 # THIS PROJECT AND THIS DOCUMENTATION IS NOT FINISHED
 
+# THE PROJECT IS NOT FUNCTIONAL YET
+
 ![alt text][main-technologies]
 
 ## Description
