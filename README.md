@@ -1,5 +1,7 @@
 # General Server Node (This is a WORK IN PROGRESS)
 
+# THIS PROJECT AND THIS DOCUMENTATION IS NOT FINISHED
+
 ![alt text][main-technologies]
 
 ## Description
@@ -27,8 +29,6 @@
 
 - Typescript
 - Node.js
-- Next.js
-- TailwindCSS
 
 ## Install
 
