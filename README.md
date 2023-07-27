@@ -1,4 +1,4 @@
-# General Client Next
+# General Server Node (This is a WORK IN PROGRESS)
 
 ![alt text][main-technologies]
 
